@@ -34,9 +34,10 @@ export class HeaderComponent implements OnInit {
   }
 
   delete(key){
-
+      if(confirm("You want to delete?")){
       localStorage.removeItem(key);
       window.location.reload();
+      }
 
   }
 
