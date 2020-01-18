@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
 import { HeaderComponent } from './header/header.component';
+import { MyfilterPipe } from './myfilter.pipe';
 
 
 @NgModule({
@@ -13,6 +14,8 @@ import { HeaderComponent } from './header/header.component';
     AppComponent,
     UserComponent,
     HeaderComponent,
+    MyfilterPipe,
+  
  
   ],
   imports: [

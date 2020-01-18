@@ -11,13 +11,14 @@
 <table id='customers' align='center'>
   <h1> Users </h1>
   <br>
+  <input type="text" class="form-control" [(ngModel)]="filtertext" placeholder="search name">
   <tr>
     <td>  <button class="btn default" (click)="sort_name()">Name</button></td>
     <td> <button class="btn default" (click)="sort_power()">Super Power</button></td>
     <td>  <button class="btn default" (click)="sort_Ego()">AlterEgo</button></td>
     <td>Delete</td>
   </tr>
-    <tr *ngFor = "let item of data ">
+    <tr *ngFor = "let item of data | myfilter: filtertext">
        
         <td> {{item.name}}</td>
         <td>{{item.power}}</td>
