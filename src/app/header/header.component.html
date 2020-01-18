@@ -1,0 +1,65 @@
+ 
+ <!DOCTYPE html>
+ <html lang="en">
+ <body>
+<br>
+
+<br><br>
+
+<div id="node-id"></div>
+
+<table id='customers' align='center'>
+  <h1> Users </h1>
+  <br>
+  <tr>
+    <td>  <button class="btn default" (click)="sort_name()">Name</button></td>
+    <td> <button class="btn default" (click)="sort_power()">Super Power</button></td>
+    <td>  <button class="btn default" (click)="sort_Ego()">AlterEgo</button></td>
+    <td>Delete</td>
+  </tr>
+    <tr *ngFor = "let item of data ">
+       
+        <td> {{item.name}}</td>
+        <td>{{item.power}}</td>
+        <td>{{item.alterEgo}}</td>
+        <td><button class="btn btn-danger" (click)="delete(item.name)"> Delete</button>
+          <button class="btn btn-warning" (click)="edit(item.name)"> edit</button>
+          
+        </td>
+
+    </tr>
+</table>
+<br>
+<ng-container *ngIf="show" id="generateId()" >
+  <div id="box" style="margin: 0 auto;text-align: left; width:30%;">
+      <div class="form-group">
+        <label>Hero name: {{tablename}}</label>
+      </div>
+      <div >
+        <label >Alter Ego</label>
+        <input type="text"   [(ngModel)]="model.edit_alterEgo" id='alterEgo' 
+        name="alterEgo" >
+      </div>
+      <div >
+        <label >Hero Power</label>
+        <select   id='power' [(ngModel)]="model.edit_power"  
+          name="power">
+          <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-success" (click)="edit_data(tablename,edit_alterEgo,edit_power)">Submit</button>
+  </div>
+</ng-container>
+
+</body>
+
+<script>
+  function generateId() {
+    return 'GENERATED_ID_' + (++generateId.counter);
+}
+  </script>
+</html>
+
+
+
+
